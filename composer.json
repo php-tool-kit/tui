@@ -1,0 +1,46 @@
+{
+    "name": "php-tool-kit/tui",
+    "description": "Text user interface for terminal/console.",
+    "type": "library",
+    "keywords": ["tui", "text user interface", "terminal", "console"],
+    "homepage": "https://github.com/php-tool-kit/tui",
+    "readme": "https://github.com/php-tool-kit/tui/README.md",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Everton da Rosa",
+            "email": "everton3x@gmail.com",
+            "homepage": "https://everton3x.github.io",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/php-tool-kit/tui/issues"
+    },
+    "require": {
+        "php": ">=8.5",
+        "ext-mbstring": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^13.4",
+        "phpstan/phpstan": "^2.2",
+        "squizlabs/php_codesniffer": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ptk\\Tui\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "test": "./vendor/bin/phpunit --coverage-html ./coverage/html/",
+        "static": "./vendor/bin/phpstan analyse",
+        "code": [
+            "@fix-code",
+            "@psr-code"
+        ],
+        "fix-code": "./vendor/bin/phpcbf --standard=PSR1,PSR2,PSR12 --colors ./src/",
+        "psr-code": "./vendor/bin/phpcs --standard=PSR1,PSR2,PSR12 --colors ./src/"
+    }
+}
